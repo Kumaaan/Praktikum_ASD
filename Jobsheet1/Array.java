@@ -1,6 +1,5 @@
 import java.util.Scanner;
 public class Array {
-   
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String huruf [] = new String[8];
@@ -33,7 +32,7 @@ public class Array {
         System.out.println("=================");
         System.out.println("hasil Konversi Nilai");
         System.out.println("=================");
-
+        
         for (int i = 0; i < nilaiAngka.length; i++) {
         if (nilaiAngka[i] > 80 && nilaiAngka[i] <= 100) {
             huruf[i] = "A";
@@ -63,7 +62,6 @@ public class Array {
             System.out.printf("%-40s %-15.2f %-15s %-15.2f\n", MK[i], nilaiAngka[i], huruf[i], bobot[i]);
         }
         System.out.println("=================");
-
         for (int i = 0; i < bobot.length; i++) {
             ip = bobot[i] * sks[i]/18;
             ipTotal += ip;
