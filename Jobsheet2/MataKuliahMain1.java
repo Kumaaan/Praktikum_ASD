@@ -14,7 +14,7 @@ public class MataKuliahMain1 {
 
         MataKuliah1 mk2 = new MataKuliah1("Matematika Dasar", "002", 2, 4);
         mk2.tampilInformasi();
-        mk2.ubahSks(3); 
+        mk2.ubahSks(3);
         mk2.tambahJam(2);
         mk2.tampilInformasi();
     }
