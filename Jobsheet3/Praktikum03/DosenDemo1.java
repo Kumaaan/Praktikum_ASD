@@ -4,32 +4,32 @@ public class DosenDemo1 {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
         Dosen1[] arrayOfDosen = new Dosen1[3];
+        String kode;
+        String nama;
+        String jenisKelamin;
+        int usia;
 
         for (int i = 0; i < arrayOfDosen.length; i++) {
-            arrayOfDosen[i] = new Dosen1();
-
-            System.out.println("Masukkan Data Dosen ke-" + (i + 1));
+            System.out.println("Masukkan data dosen ke-" + (i + 1));
             System.out.print("Kode          : ");
-            arrayOfDosen[i].kode = sc.nextLine();
+            kode = sc.next();
             System.out.print("Nama          : ");
-            arrayOfDosen[i].nama = sc.nextLine();
+            nama = sc.next();
             System.out.print("Jenis Kelamin : ");
-            arrayOfDosen[i].jenisKelamin = sc.nextLine();
+            jenisKelamin = sc.next();
             System.out.print("Usia          : ");
-            arrayOfDosen[i].usia = sc.nextInt();
-            sc.nextLine();
+            usia = sc.nextInt();
             System.out.println("=========================");
+            arrayOfDosen[i] = new Dosen1(kode, nama, jenisKelamin, usia);
         }
-        int nomor = 1;
-        for (Dosen1 dosen : arrayOfDosen) {
-            System.out.println("Data Dosen ke-" + nomor++);
-            dosen.dataSemuaDosen();
-        }
-        Dosen1 dosen = new Dosen1();
-        dosen.jumlahDosenPerJenisKelamin(arrayOfDosen);
-        dosen.rataRataUsiaPerJenisKelamin(arrayOfDosen);
-        dosen.infoDosenPalingTua(arrayOfDosen);
-        dosen.infoDosenPalingMuda(arrayOfDosen);
+       
+        DataDosen dataDosen = new DataDosen();
+        dataDosen.dataSemuaDosen(arrayOfDosen);
+        dataDosen.jumlahDosenPerJenisKelamin(arrayOfDosen);
+        dataDosen.rataRataUsiaPerJenisKelamin(arrayOfDosen);
+        dataDosen.infoDosenPalingTua(arrayOfDosen);
+        dataDosen.infoDosenPalingMuda(arrayOfDosen);
+
         sc.close();
     }
 }
