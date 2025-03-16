@@ -1,10 +1,10 @@
-package Praktikum_ASD.Jobsheet3.Praktikum03;
+package Jobsheet3.Praktikum03;
 import java.util.Scanner;
 public class MahasiswaDemo1 {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
         Mahasiswa1[] arrayOfMahasiswa = new Mahasiswa1[3];
-        String a;
+        String a;   
 
         for (int i = 0; i < arrayOfMahasiswa.length; i++) {
             arrayOfMahasiswa[i] = new Mahasiswa1();

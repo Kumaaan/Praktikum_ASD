@@ -1,4 +1,4 @@
-package Praktikum_ASD.Jobsheet3.Praktikum03;
+package Jobsheet3.Praktikum03;
 import java.util.Scanner;
 
 public class Matakuliah1 {
@@ -7,6 +7,9 @@ public class Matakuliah1 {
     public int sks;
     public int jumlahJam;
 
+    Matakuliah1(){
+
+    }
     public Matakuliah1(String kode, String nama, int sks, int jumlahJam) {
         this.kode = kode;
         this.nama = nama;

@@ -1,4 +1,4 @@
-package Praktikum_ASD.Jobsheet3.Praktikum03;
+package Jobsheet3.Praktikum03;
 import java.util.Scanner;
 public class MatakuliahDemo1 {
     public static void main (String[] args) {
@@ -12,7 +12,7 @@ public class MatakuliahDemo1 {
 
         for (int i = 0; i < arrayOfMatakuliah.length; i++) {
             System.out.println("Masukkan data matakuliah ke-" + (i + 1));
-            arrayOfMatakuliah[i] = new Matakuliah1("", "", 0, 0);
+            arrayOfMatakuliah[i] = new Matakuliah1();
             arrayOfMatakuliah[i].tambahData();
         }
         for ( int i = 0; i < arrayOfMatakuliah.length; i++) {

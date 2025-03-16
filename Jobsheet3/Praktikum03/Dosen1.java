@@ -1,4 +1,4 @@
-package Praktikum_ASD.Jobsheet3.Praktikum03;
+package Jobsheet3.Praktikum03;
 public class Dosen1 {
     String kode;
     String nama;
