@@ -8,7 +8,6 @@ public class StackTugasMahasiswa01 {
         this.size = size;
         stack = new Mahasiswa01[size];
         top = -1;
-
     }
     public boolean isFull() {
         if (top == size-1) {
@@ -24,7 +23,7 @@ public class StackTugasMahasiswa01 {
             return false;
         }
     }
-    public void push (Mahasiswa01 mhs) {
+    public void push (Mahasiswa01 mhs) {    
         if (!isFull()) {
             top++;
             stack[top] = mhs;
@@ -42,7 +41,7 @@ public class StackTugasMahasiswa01 {
             return null;
         }
     }
-    public Mahasiswa01 peek () {
+    public Mahasiswa01 peek() {
         if (!isEmpty()) {
             return stack[top];
         } else {
@@ -50,10 +49,26 @@ public class StackTugasMahasiswa01 {
             return null;
         }
     }
+    public Mahasiswa01 bottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulan.");
+            return null;
+        }
+    }
     public void print() {
-        for (int i = 0; i <= top; i++) {
+        for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
         }
         System.out.println("");
+    }
+    public int total() {
+        if (!isEmpty()) {
+            return top +1;
+        } else {
+            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulan.");
+            return 0;
+        }
     }
 }
