@@ -48,7 +48,6 @@ public class DataDosen01 {
         }
         return posisiPertama;
     }
-    
     int pencarianDataBinary01(int cari, int left, int right) {
         if (right >= left) {
             int mid = (left + right) / 2;

@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class DosenDemo01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         DataDosen01 list = new DataDosen01(3);
-
         for (int i = 0; i < list.listDosen.length ; i++) {
             System.out.println("Masukkan data dosen ke-" + (i + 1) + ":");
             System.out.print("Kode          : ");
