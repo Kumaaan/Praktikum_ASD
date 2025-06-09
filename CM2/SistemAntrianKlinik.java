@@ -60,7 +60,8 @@ public class SistemAntrianKlinik {
                     }
 
                 case 4:
-                    
+                    System.out.println(">> Sisa pasien dalam antrian: " + list.getJumlahAntrian());
+                    break;
                 case 5:
                     riwayat.tampilkanRiwayat();
                     break;

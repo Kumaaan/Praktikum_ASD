@@ -3,6 +3,8 @@ package CM2;
 public class AntrianPasien {
     NodePasien head;
     NodePasien tail;
+    int size = 0;
+
     boolean isEmpty() {
         return head == null;
     }
@@ -15,16 +17,18 @@ public class AntrianPasien {
             newPasien.prev = tail;
             tail = newPasien;
         }
+        size++;
         System.out.println(">> Pasien masuk ke dalam antrian.");
     }
     public Pasien LayaniPasien() {
         Pasien data = head.data;
         if (head == tail) {
             head = tail = null;
-
+            size = 0;
         } else {
             head = head.next;
             head.prev = null;
+            size--;
         }
         return data;
     }
@@ -41,6 +45,8 @@ public class AntrianPasien {
             System.out.println("");
             temp = temp.next;
         }
-        
+    }
+        public int getJumlahAntrian() {
+        return size;
     }
 }
