@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class SistemAntrianKlinik {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        AntrianPasien list = new AntrianPasien();
-        QueueTransaksi riwayat = new QueueTransaksi(5);
+        AntrianPasien list = new AntrianPasien(5);
+        QueueTransaksi riwayat = new QueueTransaksi(1000);
         int pilihan;
         do {
             System.out.println("\n=== SISTEM ANTRIAN KLINIK ===");
@@ -43,7 +43,7 @@ public class SistemAntrianKlinik {
                         break;
                     } else {
                         System.out.println("\n--Melayani Pasien--");
-                        Pasien pasien = list.LayaniPasien();
+                        Pasien pasien = list.layaniPasien();
                         System.out.println("Pasien " + pasien.nama + " dipanggil");
 
                         System.out.print("Masukkan ID Dokter    :" );
@@ -51,7 +51,8 @@ public class SistemAntrianKlinik {
                         System.out.print("Masukkan Nama Dokter  :");
                         String namaDokter = sc.nextLine();
                         System.out.print("Masukkan Durasi Layanan (jam): ");
-                        int durasi  = sc.nextInt();
+                        int durasi = sc.nextInt();
+                        sc.nextLine();
                         Dokter dokter = new Dokter(idDokter, namaDokter);
                         TransaksiLayanan transaksi = new TransaksiLayanan (pasien, dokter, durasi);
                         riwayat.tambahAntrian(transaksi);
@@ -60,8 +61,16 @@ public class SistemAntrianKlinik {
                     }
 
                 case 4:
-                    System.out.println(">> Sisa pasien dalam antrian: " + list.getJumlahAntrian());
+                    int jumlahAntrian = list.getJumlahAntrian();
+                    if (jumlahAntrian == 0) {
+                        System.out.println("");
+                        System.out.println("Antrian masih kosong.");
+                    } else {
+                        System.out.println(">> Sisa pasien dalam antrian: " + list.getJumlahAntrian());
+                    }
+                    
                     break;
+
                 case 5:
                     riwayat.tampilkanRiwayat();
                     break;
@@ -72,10 +81,7 @@ public class SistemAntrianKlinik {
 
                 default:  
                     System.out.println("Pilihan tidak valid!");
-                    
             }
         } while (pilihan != 0);
     }
-
-    
 }

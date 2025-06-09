@@ -30,7 +30,7 @@ public class QueueTransaksi {
     }
     public void tambahAntrian(TransaksiLayanan transaksi) {
         if (IsFull()) {
-            System.out.println("Antrian penuh, tidak dapat menambah mahasiswa");
+            System.out.println("Antrian penuh, tidak dapat menambah pasien");
             return;
         } 
         rear = (rear + 1) % max;

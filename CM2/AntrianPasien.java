@@ -4,24 +4,36 @@ public class AntrianPasien {
     NodePasien head;
     NodePasien tail;
     int size = 0;
+    int max;
+
+    AntrianPasien (int max) {
+        this.max = max;
+    }
 
     boolean isEmpty() {
         return head == null;
     }
     public void tambahPasien (Pasien data) {
         NodePasien newPasien = new NodePasien(data, null, null);
-        if (isEmpty()) {
+        if (size >= max) {
+            System.out.println("Antrian penuh, tidak dapat menambah pasien");
+        } else if (isEmpty()) {
             head = tail = newPasien;
+            size++;
+            System.out.println(">> Pasien masuk ke dalam antrian.");
         } else {
             tail.next = newPasien;
             newPasien.prev = tail;
             tail = newPasien;
+            size++;
+            System.out.println(">> Pasien masuk ke dalam antrian.");
         }
-        size++;
-        System.out.println(">> Pasien masuk ke dalam antrian.");
     }
     public Pasien LayaniPasien() {
         Pasien data = head.data;
+        if (isEmpty()) {
+            System.out.println("Antrian kosong, tidak dapat melayani pasien");
+        }
         if (head == tail) {
             head = tail = null;
             size = 0;
