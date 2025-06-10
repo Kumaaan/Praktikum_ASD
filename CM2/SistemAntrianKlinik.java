@@ -5,7 +5,7 @@ public class SistemAntrianKlinik {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         AntrianPasien list = new AntrianPasien(5);
-        QueueTransaksi riwayat = new QueueTransaksi(1000);
+        QueueTransaksi riwayat = new QueueTransaksi(100);
         int pilihan;
         do {
             System.out.println("\n=== SISTEM ANTRIAN KLINIK ===");
@@ -14,6 +14,7 @@ public class SistemAntrianKlinik {
             System.out.println("3. Layani Pasien");
             System.out.println("4. Cek Sisa Antrian Pasien");
             System.out.println("5. Lihat Riwayat Transaksi");
+            System.out.println("6. Hapus Riwayat Terdepan");
             System.out.println("0. Keluar");
             System.out.print("Pilih: ");
             pilihan = sc.nextInt();
@@ -53,9 +54,10 @@ public class SistemAntrianKlinik {
                         System.out.print("Masukkan Durasi Layanan (jam): ");
                         int durasi = sc.nextInt();
                         sc.nextLine();
+                        
                         Dokter dokter = new Dokter(idDokter, namaDokter);
                         TransaksiLayanan transaksi = new TransaksiLayanan (pasien, dokter, durasi);
-                        riwayat.tambahAntrian(transaksi);
+                        riwayat.tambahRiwayat(transaksi);
                         System.out.println(">> Pasien telah dilayani, transaksi berhasil dicatat.");
                         break;
                     }
@@ -68,13 +70,16 @@ public class SistemAntrianKlinik {
                     } else {
                         System.out.println(">> Sisa pasien dalam antrian: " + list.getJumlahAntrian());
                     }
-                    
                     break;
 
                 case 5:
                     riwayat.tampilkanRiwayat();
                     break;
 
+                case 6: 
+                    riwayat.hapusRiwayatTerdepan();
+                    break;
+                    
                 case 0:  
                     System.out.println("Keluar dari program.");
                     break;

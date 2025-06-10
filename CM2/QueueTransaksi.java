@@ -10,7 +10,7 @@ public class QueueTransaksi {
     QueueTransaksi (int max) {
         this.max = max;
         this.data = new TransaksiLayanan[max];
-        this.front = 0;
+        this.front = -1;
         this.rear = -1;
         this.size = 0;
     }
@@ -28,15 +28,18 @@ public class QueueTransaksi {
             return false;
         }
     }
-    public void tambahAntrian(TransaksiLayanan transaksi) {
+    public void tambahRiwayat(TransaksiLayanan transaksi) {
         if (IsFull()) {
             System.out.println("Antrian penuh, tidak dapat menambah pasien");
             return;
         } 
-        rear = (rear + 1) % max;
-        data[rear] = transaksi;
+        if (IsEmpty()){
+            front = rear = 0;
+        } else {
+            rear = (rear + 1) % max;
+        }
         size++;
-        
+        data[rear] = transaksi;
     }
     public void tampilkanRiwayat() {
         if (IsEmpty()) {
@@ -51,4 +54,16 @@ public class QueueTransaksi {
             System.out.println(data[index].pasien.nama + " (" + data[index].durasiLayanan + " jam): Rp " + data[index].hitungBiaya());
         }
     }
+    public void hapusRiwayatTerdepan() {
+        TransaksiLayanan hapus = data[front];
+        size--;
+        front = (front + 1) % max;
+        System.out.println("\n--Menghapus Riwayat--");
+        System.out.println("Data yang dihapus:");
+        System.out.println("Nama Pasien : " + hapus.pasien.nama);
+        System.out.println("NIK         : " + hapus.pasien.nik);
+        System.out.println("Keluhan     : " + hapus.pasien.keluhan);
+        System.out.println("Dilayani oleh Dokter " + hapus.dokter.nama);
+    }
+
 }

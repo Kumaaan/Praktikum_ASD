@@ -29,10 +29,11 @@ public class AntrianPasien {
             System.out.println(">> Pasien masuk ke dalam antrian.");
         }
     }
-    public Pasien LayaniPasien() {
+    public Pasien layaniPasien() {
         Pasien data = head.data;
         if (isEmpty()) {
             System.out.println("Antrian kosong, tidak dapat melayani pasien");
+            return null;
         }
         if (head == tail) {
             head = tail = null;

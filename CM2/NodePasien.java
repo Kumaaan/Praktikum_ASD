@@ -8,7 +8,7 @@ public class NodePasien {
     public NodePasien(Pasien data, NodePasien next, NodePasien prev) {
 
         this.data = data;
-        this.next = null;
-        this.prev = null;
+        this.next = next;
+        this.prev = prev;
     }
 }
