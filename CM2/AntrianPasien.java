@@ -9,7 +9,6 @@ public class AntrianPasien {
     AntrianPasien (int max) {
         this.max = max;
     }
-
     boolean isEmpty() {
         return head == null;
     }
@@ -31,10 +30,6 @@ public class AntrianPasien {
     }
     public Pasien layaniPasien() {
         Pasien data = head.data;
-        if (isEmpty()) {
-            System.out.println("Antrian kosong, tidak dapat melayani pasien");
-            return null;
-        }
         if (head == tail) {
             head = tail = null;
             size = 0;
@@ -59,7 +54,7 @@ public class AntrianPasien {
             temp = temp.next;
         }
     }
-        public int getJumlahAntrian() {
+    public int getJumlahAntrian() {
         return size;
     }
 }

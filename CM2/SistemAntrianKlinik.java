@@ -40,7 +40,7 @@ public class SistemAntrianKlinik {
                 case 3:
                     if (list.isEmpty()) {
                         System.out.println("\n--Melayani Pasien--");
-                        System.out.println("Antrian kosong, tidak bisa dihapus.");
+                        System.out.println("Antrian kosong, tidak bisa melayani pasien.");
                         break;
                     } else {
                         System.out.println("\n--Melayani Pasien--");
